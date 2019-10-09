@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../service/app.service';
+import { Presentateur } from '../model/presentateur';
 
 @Component({
   selector: 'app-presentateurs',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PresentateursPage implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppService) { }
+
+  urlBase = this.appService.urlGlobal;
+
+  listePresentateurs: Presentateur[] = [];
+
+  recupererPresentateurs() {
+    this.appService.recupererPresentateurs().subscribe((liste) => this.listePresentateurs = liste, (error) => console.log(error));
+  }
+  // recupererPresentateurs() {
+  //   this.appService.recupererPresentateurs().subscribe((liste) => console.log(liste), (error) => console.log(error));
+  // }
 
   ngOnInit() {
+    this.recupererPresentateurs();
   }
 
 }

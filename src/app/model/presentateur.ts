@@ -9,5 +9,13 @@ export interface Presentateur {
     shortBio: string;
     bio: string;
     tags: string[];
-    badges: any[];
+    badges: {
+        name: string;
+        description: string;
+    };
+    socials: {
+        icon: string;
+        name: string;
+        link: string;
+    };
 }
