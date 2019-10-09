@@ -7,7 +7,7 @@ script:
   - ionic cordova build browser — prod
   - cp dist/air-data-front/index.html dist/air-data-front/404.html
 deploy:
-  local-dir: www
+  local-dir: dist/conference-ionic
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
