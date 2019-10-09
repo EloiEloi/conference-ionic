@@ -4,6 +4,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Presentateur } from '../model/presentateur';
 import { Session } from '../model/session';
 import { map } from 'rxjs/operators';
+import { Schedule } from '../model/schedule';
 
 
 
@@ -30,8 +31,8 @@ export class AppService {
     return this.http.get<Session[]>(`${this.urlGlobal}sessions`, this.httpOptions).pipe(map((liste) => Object.values(liste)));
   }
 
-  recupererPlanning(): Observable<Date[]> {
-    return this.http.get<Date[]>(`${this.urlGlobal}/schedule`, this.httpOptions);
+  recupererPlanning(): Observable<Schedule[]> {
+    return this.http.get<Schedule[]>(`${this.urlGlobal}schedule`, this.httpOptions);
   }
 
 }

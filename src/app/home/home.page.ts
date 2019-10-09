@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../service/app.service';
+import { Schedule } from "../model/schedule";
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,15 @@ export class HomePage implements OnInit {
 
   constructor(private appService: AppService) { }
 
+  listeSchedule: Schedule[] = [];
+
   recupererDate() {
-    this.appService.recupererPlanning().subscribe((liste) => console.log(liste));
+
+    this.appService.recupererPlanning().subscribe((liste) => this.listeSchedule = liste);
   }
 
   ngOnInit(): void {
-
+    this.recupererDate();
   }
 
 }
