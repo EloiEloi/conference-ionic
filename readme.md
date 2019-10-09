@@ -1,0 +1,1 @@
+https://travis-ci.org/EloiEloi/conference-ionic.svg?branch=master
