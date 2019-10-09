@@ -33,7 +33,7 @@ export class AppService {
   recupererPlanning(): Observable<Date[]> {
     return this.http.get<Date[]>(`${this.urlGlobal}/schedule`, this.httpOptions);
   }
-  
+
 }
 
 

@@ -11,7 +11,7 @@ export class HomePage implements OnInit {
   constructor(private appService: AppService) { }
 
   recupererDate() {
-      this.appService.
+    this.appService.recupererPlanning().subscribe((liste) => console.log(liste));
   }
 
   ngOnInit(): void {
