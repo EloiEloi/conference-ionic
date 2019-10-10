@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>presentateurs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <section>
+
+    <ion-text color="dark">
+      <h1>{{presentateur.name}} {{presentateur.country}}</h1>
+      <img src="{{urlImagesBase}}{{presentateur.photoUrl}}">
+      <p>{{presentateur.bio}}</p>
+      <p><img src="{{urlImagesBase}}{{presentateur.companyLogo}}">{{presentateur.company}}</p>
+    </ion-text>
+
+  </section>
+
+  <section>
+
+
+  </section>
+
+</ion-content>

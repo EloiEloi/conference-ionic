@@ -9,8 +9,11 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of listePresentateurs">
+    <ion-item *ngFor="let item of listePresentateurs" (click)="afficherDetail(item.id)">
       <ion-icon name="person" slot="start"></ion-icon>
+      <!-- <ion-thumbnail slot="start">
+        <img src="{{item.photoUrl}}">
+      </ion-thumbnail> -->
       <div>{{item.name}}</div>
       <ion-icon name="arrow-forward" slot="end"></ion-icon>
     </ion-item>

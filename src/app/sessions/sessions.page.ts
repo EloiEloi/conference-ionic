@@ -14,7 +14,6 @@ export class SessionsPage implements OnInit {
 
   constructor(private appService: AppService, private router: Router) { }
 
-  urlBase = this.appService.urlGlobal;
 
   listeSessions: Session[] = [];
 

@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'sessions-detail/:id',
     loadChildren: () => import('./sessions/sessions-detail/sessions-detail.module').then(m => m.SessionsDetailPageModule)
+  },
+  {
+    path: 'presentateurs-detail/:id',
+    loadChildren: () => import('./presentateurs/presentateurs-detail/presentateurs-detail.module').then(m => m.PresentateursDetailPageModule)
   }
 ];
 

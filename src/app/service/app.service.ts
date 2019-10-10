@@ -30,21 +30,24 @@ export class AppService {
   listePresentateurs: Presentateur[] = [];
 
 
+  recupererPresentateurById(idSession: string): Presentateur {
+    let presentateurTrouvee: Presentateur;
+    this.listePresentateurs.forEach(element => {
+      if (element.id === parseInt(idSession)) {
+        presentateurTrouvee = element;
+      }
+    });
+    return presentateurTrouvee;
+  }
 
   recupererSessionById(idSession: string): Session {
     let sessionTrouvee: Session;
-
     this.listeSessions.forEach(element => {
-
       if (element.id === parseInt(idSession)) {
         sessionTrouvee = element;
       }
-
     });
-
-
     return sessionTrouvee;
-
   }
 
 

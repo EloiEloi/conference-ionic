@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../service/app.service';
 import { Schedule } from "../model/schedule";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,18 @@ import { Schedule } from "../model/schedule";
 })
 export class HomePage implements OnInit {
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private router: Router) { }
 
   listeSchedule: Schedule[] = [];
   dateDebut = '';
   dateFin = '';
 
+  afficherPresentateurs() {
+    this.router.navigate(['presentateurs']);
+  }
+  afficherSessions() {
+    this.router.navigate(['presentateurs']);
+  }
 
   recupererDates() {
     this.appService.recupererPlanning().subscribe(

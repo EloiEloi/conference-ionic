@@ -17,7 +17,6 @@ export class SessionsDetailPage implements OnInit {
 
   recupererSession(id: string) {
     this.session = this.appService.recupererSessionById(id);
-
   }
 
   ngOnInit() {
