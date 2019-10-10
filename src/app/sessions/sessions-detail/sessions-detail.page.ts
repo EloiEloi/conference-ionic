@@ -13,16 +13,11 @@ export class SessionsDetailPage implements OnInit {
 
   session: Session;
 
+  constructor(private activatedRoute: ActivatedRoute, private appService: AppService) { }
 
+  recupererSession(id: string) {
+    this.session = this.appService.recupererSessionById(id);
 
-  constructor(private activatedRoute: ActivatedRoute, private appService: AppService) {
-
-
-  }
-
-  recupererSession(id) {
-    //this.session = this.appService.recupererSessionById().subscribe();
-    this.appService.recupererSessionById(id);
   }
 
   ngOnInit() {

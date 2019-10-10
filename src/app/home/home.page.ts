@@ -29,7 +29,6 @@ export class HomePage implements OnInit {
 
   ngOnInit(): void {
     this.recupererDates();
-    console.log(this.listeSchedule);
   }
 
 }

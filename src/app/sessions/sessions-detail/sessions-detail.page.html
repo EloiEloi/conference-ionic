@@ -16,7 +16,8 @@
   <section>
 
     <ion-text color="dark">
-      <h5>textecjnlvjv nlevcn,mlv keml kezvmlkevek vlkvs lvke mve.vlesjvnlsvjnelkfjnelgkjengk</h5>
+      <h1>{{session.title}}</h1>
+      <p>{{session.description}}</p>
     </ion-text>
   </section>
 
@@ -25,23 +26,23 @@
 
 
     <ion-list>
+
       <ion-text color="dark">
         <h5>presentateurs</h5>
       </ion-text>
-      <ion-item>
+
+
+      <ion-item *ngFor="let item of session.speakers">
         <ion-thumbnail slot="start">
           <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
         </ion-thumbnail>
         <ion-label>
-          <h2>H2 Title Text</h2>
+          <h2>{{item}}</h2>
           <p>Button on right</p>
         </ion-label>
         <ion-button fill="outline" slot="end">View</ion-button>
-      </ion-item>
 
-      <!-- <ion-item *ngFor="let item of items">
-      <ion-img>{{item.}}</ion-img>
-    </ion-item> -->
+      </ion-item>
 
 
 

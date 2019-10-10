@@ -8,6 +8,8 @@ import { Schedule } from '../model/schedule';
 
 
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,24 +31,19 @@ export class AppService {
 
 
 
-  recupererSessionById(idSession) {
-    if (this.listeSessions.length === 0) {
-      console.log("idSession = ", idSession)
-      this.recupererSessions().subscribe(
-        (() =>
-          this.listeSessions.forEach(element => {
-            if (element.id === idSession) {
-              // return element;
-              console.log(element);
-            }
+  recupererSessionById(idSession: string): Session {
+    let sessionTrouvee: Session;
 
-          })
-        )
-      );
-    } else {
-      console.log("else")
-    }
+    this.listeSessions.forEach(element => {
 
+      if (element.id === parseInt(idSession)) {
+        sessionTrouvee = element;
+      }
+
+    });
+
+
+    return sessionTrouvee;
 
   }
 
