@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../service/app.service';
-import { Schedule } from "../model/schedule";
+import { Schedule } from '../model/schedule';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
     this.router.navigate(['presentateurs']);
   }
   afficherSessions() {
-    this.router.navigate(['presentateurs']);
+    this.router.navigate(['sessions']);
   }
 
   recupererDates() {

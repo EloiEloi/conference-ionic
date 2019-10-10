@@ -14,6 +14,7 @@ export class PresentateursPage implements OnInit {
 
 
   listePresentateurs: Presentateur[] = [];
+  urlImagesBase = this.appService.urlImageBase;
 
   afficherDetail(id: number) {
     this.router.navigate(['presentateurs-detail', id]);

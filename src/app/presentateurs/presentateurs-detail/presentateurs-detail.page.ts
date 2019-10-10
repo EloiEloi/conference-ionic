@@ -13,7 +13,7 @@ export class PresentateursDetailPage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private appService: AppService) { }
 
   presentateur: Presentateur;
-  urlImagesBase = 'https://devfest2018.gdgnantes.com';
+  urlImagesBase = this.appService.urlImageBase;
 
   recuperePresentateur(id: string) {
     this.presentateur = this.appService.recupererPresentateurById(id);

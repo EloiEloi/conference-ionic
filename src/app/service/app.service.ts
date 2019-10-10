@@ -9,7 +9,6 @@ import { Schedule } from '../model/schedule';
 
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -23,6 +22,7 @@ export class AppService {
   };
 
   urlGlobal = 'https://devfest-nantes-2018-api.cleverapps.io/';
+  urlImageBase = 'https://devfest2018.gdgnantes.com/';
 
   constructor(private http: HttpClient) { }
 
@@ -30,15 +30,16 @@ export class AppService {
   listePresentateurs: Presentateur[] = [];
 
 
-  recupererPresentateurById(idSession: string): Presentateur {
+  recupererPresentateurById(idpresentateur: string): Presentateur {
     let presentateurTrouvee: Presentateur;
     this.listePresentateurs.forEach(element => {
-      if (element.id === parseInt(idSession)) {
+      if (element.id === parseInt(idpresentateur)) {
         presentateurTrouvee = element;
       }
     });
     return presentateurTrouvee;
   }
+
 
   recupererSessionById(idSession: string): Session {
     let sessionTrouvee: Session;
@@ -55,6 +56,11 @@ export class AppService {
     return this.http.get<Presentateur[]>(`${this.urlGlobal}speakers`, this.httpOptions).pipe(
       map((liste) => {
         this.listePresentateurs = Object.values(liste);
+        this.listePresentateurs.forEach(element => {
+          if (typeof (element.id) === 'string') {
+            element.id = parseInt(element.id);
+          }
+        });
         return Object.values(liste);
       })
     );
