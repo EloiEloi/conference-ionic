@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Session } from 'src/app/model/session';
 import { AppService } from 'src/app/service/app.service';
 import { Presentateur } from 'src/app/model/presentateur';
@@ -13,20 +13,27 @@ import { Presentateur } from 'src/app/model/presentateur';
 export class SessionsDetailPage implements OnInit {
 
   session: Session;
-  presentateurs: Presentateur[];
+  presentateurs: Presentateur[] = [];
+  urlImageBase = this.appService.urlImageBase;
 
-  constructor(private activatedRoute: ActivatedRoute, private appService: AppService) { }
+  constructor(private activatedRoute: ActivatedRoute, private appService: AppService, private router: Router) { }
+
+  afficherDetailPresentateur(id: string) {
+    this.router.navigate(['presentateurs-detail', id]);
+  }
+
 
   recupererSessionEtPresentateurs(id: string) {
     this.session = this.appService.recupererSessionById(id);
     this.session.speakers.forEach(element => {
       let pres: Presentateur;
-      pres = this.appService.recupererPresentateurById(element.toString());
+      const idElement = element.toString()
+      pres = this.appService.recupererPresentateurById(idElement);
+      console.log('id :', id);
       console.log('pres :', pres);
-      console.log('element :', element);
+      console.log('element :', idElement);
       this.presentateurs.push(pres);
     });
-    console.log(this.presentateurs);
 
   }
 

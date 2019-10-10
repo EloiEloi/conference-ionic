@@ -16,6 +16,10 @@
       <img src="{{urlImagesBase}}{{presentateur.photoUrl}}">
       <p>{{presentateur.bio}}</p>
       <p><img src="{{urlImagesBase}}{{presentateur.companyLogo}}">{{presentateur.company}}</p>
+
+      <!-- <ion-label>{{presentateur.tags}}</ion-label> -->
+      <ion-badge *ngFor="let tag of presentateur.tags">{{tag}}</ion-badge>
+
     </ion-text>
 
   </section>

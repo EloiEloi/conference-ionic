@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Presentateur } from '../model/presentateur';
 import { Session } from '../model/session';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Schedule } from '../model/schedule';
 
 
@@ -53,6 +53,13 @@ export class AppService {
 
 
   recupererPresentateurs(): Observable<Presentateur[]> {
+
+    if (localStorage.getItem('presentateurs')) {
+
+      return of(JSON.parse(localStorage.getItem('presentateurs')));
+
+    }
+
     return this.http.get<Presentateur[]>(`${this.urlGlobal}speakers`, this.httpOptions).pipe(
       map((liste) => {
         this.listePresentateurs = Object.values(liste);
@@ -61,15 +68,23 @@ export class AppService {
             element.id = parseInt(element.id);
           }
         });
+        localStorage.setItem('presentateurs', JSON.stringify(this.listePresentateurs));
         return Object.values(liste);
       })
     );
   }
 
   recupererSessions(): Observable<Session[]> {
+    if (localStorage.getItem('sessions')) {
+
+      return of(JSON.parse(localStorage.getItem('sessions')));
+
+    }
+
     return this.http.get<Session[]>(`${this.urlGlobal}sessions`, this.httpOptions).pipe(
       map((liste) => {
         this.listeSessions = Object.values(liste);
+        localStorage.setItem('sessions', JSON.stringify(this.listeSessions));
         return Object.values(liste);
       })
     );

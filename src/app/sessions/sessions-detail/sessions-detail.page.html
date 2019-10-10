@@ -19,12 +19,15 @@
       <h1>{{session.title}}</h1>
       <p>{{session.description}}</p>
     </ion-text>
-    
+
+    <p>type : {{session.type}}</p>
+    <p>langue : {{session.language}}</p>
+    <p>categorie : {{session.category}}</p>
+    <p>complexité : {{session.complexity}}</p>
+
   </section>
 
   <section>
-
-
 
     <ion-list>
 
@@ -33,15 +36,15 @@
       </ion-text>
 
 
-      <ion-item *ngFor="let item of session.speakers">
+      <ion-item *ngFor="let pres of presentateurs">
         <ion-thumbnail slot="start">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+          <img src="{{urlImageBase}}{{pres.photoUrl}}">
         </ion-thumbnail>
         <ion-label>
-          <h2>{{item}}</h2>
+          <h2>{{pres.name}}</h2>
           <p>Button on right</p>
         </ion-label>
-        <ion-button fill="outline" slot="end">View</ion-button>
+        <ion-button (click)="afficherDetailPresentateur(pres.id)" fill="outline" slot="end">View</ion-button>
 
       </ion-item>
 
