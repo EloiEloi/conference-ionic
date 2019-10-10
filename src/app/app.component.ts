@@ -18,7 +18,7 @@ export class AppComponent {
     },
     {
       title: 'sessions',
-      url: '/list',
+      url: '/sessions',
       icon: 'school'
     },
     {

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Presentateur } from '../model/presentateur';
 import { Session } from '../model/session';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Schedule } from '../model/schedule';
 
 
@@ -12,6 +12,7 @@ import { Schedule } from '../model/schedule';
   providedIn: 'root'
 })
 export class AppService {
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -23,12 +24,49 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
+  listeSessions: Session[] = [];
+  listePresentateurs: Presentateur[] = [];
+
+
+
+  recupererSessionById(idSession) {
+    if (this.listeSessions.length === 0) {
+      console.log("idSession = ", idSession)
+      this.recupererSessions().subscribe(
+        (() =>
+          this.listeSessions.forEach(element => {
+            if (element.id === idSession) {
+              // return element;
+              console.log(element);
+            }
+
+          })
+        )
+      );
+    } else {
+      console.log("else")
+    }
+
+
+  }
+
+
   recupererPresentateurs(): Observable<Presentateur[]> {
-    return this.http.get<Presentateur[]>(`${this.urlGlobal}speakers`, this.httpOptions).pipe(map((liste) => Object.values(liste)));
+    return this.http.get<Presentateur[]>(`${this.urlGlobal}speakers`, this.httpOptions).pipe(
+      map((liste) => {
+        this.listePresentateurs = Object.values(liste);
+        return Object.values(liste);
+      })
+    );
   }
 
   recupererSessions(): Observable<Session[]> {
-    return this.http.get<Session[]>(`${this.urlGlobal}sessions`, this.httpOptions).pipe(map((liste) => Object.values(liste)));
+    return this.http.get<Session[]>(`${this.urlGlobal}sessions`, this.httpOptions).pipe(
+      map((liste) => {
+        this.listeSessions = Object.values(liste);
+        return Object.values(liste);
+      })
+    );
   }
 
   recupererPlanning(): Observable<Schedule[]> {

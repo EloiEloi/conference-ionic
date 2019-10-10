@@ -12,12 +12,16 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+    path: 'sessions',
+    loadChildren: () => import('./sessions/sessions.module').then(m => m.SessionsPageModule)
   },
   {
     path: 'presentateurs',
     loadChildren: () => import('./presentateurs/presentateurs.module').then(m => m.PresentateursPageModule)
+  },
+  {
+    path: 'sessions-detail/:id',
+    loadChildren: () => import('./sessions/sessions-detail/sessions-detail.module').then(m => m.SessionsDetailPageModule)
   }
 ];
 
