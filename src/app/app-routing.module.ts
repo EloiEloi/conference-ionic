@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'presentateurs-detail/:id',
     loadChildren: () => import('./presentateurs/presentateurs-detail/presentateurs-detail.module').then(m => m.PresentateursDetailPageModule)
+  },
+  {
+    path: 'telephone',
+    loadChildren: () => import('./infos/telephone/telephone.module').then(m => m.TelephonePageModule)
   }
 ];
 

@@ -1,0 +1,7 @@
+{
+  "appId": "dev.fest.2018",
+  "appName": "devfest2018",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
