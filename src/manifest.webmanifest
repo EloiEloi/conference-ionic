@@ -1,11 +1,12 @@
 {
-  "name": "app",
-  "short_name": "app",
+  "name": "DevFest Nantes 2018",
+  "short_name": "DevFest 18",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
-  "display": "standalone",
+  "display": "fullscreen",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/conference-ionic/",
+  "description": "tp de création d'une PWA avec Ionic",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
