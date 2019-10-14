@@ -30,7 +30,8 @@ const routes: Routes = [
   {
     path: 'telephone',
     loadChildren: () => import('./infos/telephone/telephone.module').then(m => m.TelephonePageModule)
-  }
+  },
+  { path: 'notes', loadChildren: './notes/notes.module#NotesPageModule' }
 ];
 
 @NgModule({

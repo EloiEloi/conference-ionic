@@ -25,6 +25,16 @@ export class AppComponent {
       title: 'presentateurs',
       url: '/presentateurs',
       icon: 'people'
+    },
+    {
+      title: 'telephone',
+      url: '/telephone',
+      icon: 'settings'
+    },
+    {
+      title: 'notes',
+      url: '/notes',
+      icon: 'clipboard'
     }
   ];
 

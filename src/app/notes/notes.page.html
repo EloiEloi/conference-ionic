@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>notes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h1>Titre Session</h1>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div style="font-size: 40px;">
+          <ion-icon (click)="prendrePhoto()" name="camera"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div style="font-size: 40px;">
+          <ion-icon name="image"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <form>
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+      <ion-item>
+        <ion-label position="floating">Notes</ion-label>
+        <ion-textarea id="truc" name="bidule"></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-no-margin" (click)="enregistrerNote()">Enregistrer
+      </ion-button>
+    </div>
+
+  </form>
+
+  <section><img [src]="photo"></section>
+
+</ion-content>
